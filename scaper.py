@@ -12,5 +12,10 @@ parent_first_sibling_div = first_sibling_div.parent
 
 
 find_div = main_container_div_element.find_all('div', class_="main-page row")
-print(find_div[0])
-# print(soup.body.div.div.next_sibling.prettify())
+# print(find_div[0])
+
+find_div_2 = find_div[0].find_all('div', class_='shops-directory-list span12 alpha omega section')
+print(find_div_2)
+
+Bookstore_info = find_div_2[0].find_all('div', class_='shop-item span6 mobile-span12')
+print(Bookstore_info)
