@@ -1,4 +1,4 @@
-import pdb
+import csv
 from bs4 import BeautifulSoup
 import requests
 
@@ -21,27 +21,17 @@ find_div_2 = find_div[0].find_all('div', class_='shops-directory-list span12 alp
 Bookstore_info = find_div_2[0].find_all('div', class_='shop-item span6 mobile-span12')
 # print(Bookstore_info)
 
-with open('name_address.txt', 'w') as file:
+with open('dataset.csv', 'w') as dataset_file:
+    dataset_writer = csv.writer(dataset_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+    print('Bookstore name, Street_name, Town, Postcode')
+    dataset_writer.writerow(['Bookstore name,  Street_name, Town, Postcode'])
     for each_bookstore in Bookstore_info:
         name_of_bookstore = each_bookstore.find('a', class_='title link-invert')
         address_of_bookstore = each_bookstore.find('a', class_='shop-address')
-        # striped_address = address_of_bookstore.text.strip()
-        # striped_address = striped_address.replace(' ', '')
         seprated_address = ' '.join(address_of_bookstore.text.split())
 
-        print('Bookstore name: ')
-        print(name_of_bookstore.text.strip())
+        print(name_of_bookstore.text.strip(), seprated_address)
 
         print('\n')
 
-        print('address_of_bookstore: ')
-        print(seprated_address)
-        print('\n')
-        # print(address_of_bookstore.text.strip())
-
-        file.write('Bookstore name:')
-        file.write(name_of_bookstore.text.strip())
-        file.write('\n')
-        file.write('Bookstore_address: ')
-        file.write(seprated_address)
-        file.write('\n')
+        dataset_writer.writerow([name_of_bookstore.text.strip(), seprated_address])
