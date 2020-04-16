@@ -3,7 +3,7 @@ import time
 from bs4 import BeautifulSoup
 import requests
 
-pages = [str(i) for i in range(1, 15)]
+pages = [str(i) for i in range(1, 15)]  # Creates list of numbers to be used for URL
 
 with open('dataset.csv', 'w') as dataset_file:
     dataset_writer = csv.writer(dataset_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
