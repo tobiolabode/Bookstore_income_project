@@ -7,7 +7,7 @@ pages = [str(i) for i in range(1, 15)]  # Creates list of numbers to be used for
 
 with open('dataset.csv', 'w') as dataset_file:
     dataset_writer = csv.writer(dataset_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-    dataset_writer.writerow(['Bookstore name', ' Street_name', 'Town', 'Postcode'])
+    dataset_writer.writerow(['Bookstore name', 'Street_name', 'Town', 'Postcode'])
 
     for each_page in pages:
         page = requests.get("https://www.waterstones.com/bookshops/viewall" + '/page/' + each_page)
