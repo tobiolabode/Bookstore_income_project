@@ -1,0 +1,15 @@
+[EN]{2}|[IG]{2}|[RM]{2}|[DA]{2}|[BR]{2}|[TN]{2}|[CR]{2}|[SM]{2}|[KT]{2}|[TW]{2}|[HA]{2}|[UB]{2}|[E]{2}|[EC]{2}|[N]{2}|[NW]{2}|[SE]{2}|[SW]{2}|[W]{2}|[WC]{2}
+
+
+[RM]{2}|[TW]{2}|[IG]{2}
+
+
+https://regexr.com/52qjb
+
+PR1 3NN E16 5ND RM39 4YV IG4 4RV
+TW9 1TN
+SY1 1SJ
+EH15 3RD
+CV37 6AU
+S1 2FB
+DD1 3DG
