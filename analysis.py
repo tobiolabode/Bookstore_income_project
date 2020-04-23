@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 pd.set_option('display.max_colwidth', -1)
-pd.set_option('display.max_columns', None)
+# pd.set_option('display.max_columns', None)
 
 Postcodes = ['EN', 'IG', 'RM', 'DA', 'BR', 'TN', 'CR', 'SM', 'KT',
              'TW', 'HA', 'UB', 'E', 'EC', 'N', 'NW', 'SE', 'SW', 'W', 'WC']
@@ -26,17 +26,25 @@ non_bool_filtered_inner_london = dataset_df[dataset_df['Bookstore name'].str.con
 
 
 # print(non_bool_filtered_greater_london.head(10))
-print(non_bool_filtered_inner_london.head(10))
+# print(non_bool_filtered_inner_london.head(10))
 
 dataset_df['Greater_london'] = filtered_greater_london
 dataset_df['Inner_london'] = filtered_inner_london
 # dataset_df = dataset_df.drop(' Street_name', axis=1)
 
-filtered_dataset = dataset_df[['Inner_london', 'Greater_london']]
+frames = [non_bool_filtered_greater_london, non_bool_filtered_inner_london]
+
+result = pd.concat(frames)
+# result = result.drop(' Street_name', axis=1)
+
+print(result)
+
+result.to_csv('filtered_dataset.csv', index=False)
+
+
+# filtered_dataset = dataset_df[['Inner_london', 'Greater_london']]
 
 
 # print(filtered_dataset.head(10))
 
 # print(dataset_df.head(10))
-
-# dataset_df.to_csv('filtered_dataset.csv', index=False)
