@@ -19,11 +19,24 @@ dataset_df = dataset_df.drop('Town', axis=1)
 filtered_greater_london = dataset_df.Postcode.str.contains(Greater_london_postcode_regex)
 filtered_inner_london = dataset_df['Bookstore name'].str.contains(London_bookstore_name_regex)
 
+non_bool_filtered_greater_london = dataset_df[
+    dataset_df.Postcode.str.contains(Greater_london_postcode_regex) == True]
+non_bool_filtered_inner_london = dataset_df[dataset_df['Bookstore name'].str.contains(
+    London_bookstore_name_regex) == True]
+
+
+# print(non_bool_filtered_greater_london.head(10))
+print(non_bool_filtered_inner_london.head(10))
+
 dataset_df['Greater_london'] = filtered_greater_london
 dataset_df['Inner_london'] = filtered_inner_london
 # dataset_df = dataset_df.drop(' Street_name', axis=1)
 
+filtered_dataset = dataset_df[['Inner_london', 'Greater_london']]
 
-print(dataset_df.head(10))
+
+# print(filtered_dataset.head(10))
+
+# print(dataset_df.head(10))
 
 # dataset_df.to_csv('filtered_dataset.csv', index=False)
