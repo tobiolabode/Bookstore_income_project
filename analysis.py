@@ -37,14 +37,17 @@ frames = [non_bool_filtered_greater_london, non_bool_filtered_inner_london]
 result = pd.concat(frames)
 # result = result.drop(' Street_name', axis=1)
 
-print(result)
+# print(result)
+#
+# result.to_csv('filtered_dataset.csv', index=False)
 
-result.to_csv('filtered_dataset.csv', index=False)
+excel_df = pd.read_excel('income-of-tax-payers.xls', sheet_name=1)
 
+# print(excel_df.head(10))
 
-# filtered_dataset = dataset_df[['Inner_london', 'Greater_london']]
+tax_year = excel_df[['2016-17', 'Unnamed: 49', 'Unnamed: 50']]
+tax_year = tax_year.drop(tax_year.tail(10).index, inplace=True)
+print(tax_year)
 
-
-# print(filtered_dataset.head(10))
-
-# print(dataset_df.head(10))
+# for col in excel_df.columns:
+#     print(col)
