@@ -45,8 +45,9 @@ excel_df = pd.read_excel('income-of-tax-payers.xls', sheet_name=1)
 
 # print(excel_df.head(10))
 
-tax_year = excel_df[['2016-17', 'Unnamed: 49', 'Unnamed: 50']]
-tax_year = tax_year.drop(tax_year.tail(10).index, inplace=True)
+tax_year = excel_df[['Unnamed: 1', '2016-17', 'Unnamed: 51', 'Unnamed: 52']]
+tax_year = tax_year.dropna()
+tax_year = tax_year.drop(tax_year.index[34:])
 print(tax_year)
 
 # for col in excel_df.columns:
