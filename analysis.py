@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+import matplotlib.pyplot as plt
 pd.set_option('display.max_colwidth', -1)
 # pd.set_option('display.max_columns', None)
 
@@ -44,11 +45,22 @@ result = pd.concat(frames)
 excel_df = pd.read_excel('income-of-tax-payers.xls', sheet_name=1)
 
 # print(excel_df.head(10))
+# for col in excel_df.columns:
+#     print(col)
+
 
 tax_year = excel_df[['Unnamed: 1', '2016-17', 'Unnamed: 51', 'Unnamed: 52']]
 tax_year = tax_year.dropna()
 tax_year = tax_year.drop(tax_year.index[34:])
+new_header = tax_year.iloc[0]
+tax_year = tax_year[1:]
+tax_year.columns = new_header
 print(tax_year)
 
-# for col in excel_df.columns:
+# for col in tax_year.columns:
 #     print(col)
+
+tax_year_without_pop = tax_year.drop('Number of Individuals', axis=1)
+print(tax_year_without_pop)
+
+# Linear regession question: num of Bookstores to income.
