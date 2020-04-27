@@ -55,12 +55,15 @@ tax_year = tax_year.drop(tax_year.index[34:])
 new_header = tax_year.iloc[0]
 tax_year = tax_year[1:]
 tax_year.columns = new_header
-print(tax_year)
+# print(tax_year)
 
 # for col in tax_year.columns:
 #     print(col)
 
 tax_year_without_pop = tax_year.drop('Number of Individuals', axis=1)
 print(tax_year_without_pop)
+
+tax_year_without_pop.plot(kind='bar', x='Area', y='Mean £')
+plt.show()
 
 # Linear regession question: num of Bookstores to income.
