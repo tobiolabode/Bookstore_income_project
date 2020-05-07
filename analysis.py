@@ -64,6 +64,13 @@ tax_year_without_pop = tax_year.drop('Number of Individuals', axis=1)
 print(tax_year_without_pop)
 
 tax_year_without_pop.plot(kind='bar', x='Area', y='Mean £')
-plt.show()
+# plt.show()
+
 
 # Linear regession question: num of Bookstores to income.
+
+bookstore_df = pd.read_csv('filtered_dataset_boroughs.csv')
+count = bookstore_df['Borough'].value_counts()
+print(count)
+
+count.to_csv('count_borough.csv', index=False)
