@@ -73,4 +73,4 @@ bookstore_df = pd.read_csv('filtered_dataset_boroughs.csv')
 count = bookstore_df['Borough'].value_counts()
 print(count)
 
-count.to_csv('count_borough.csv', index=False)
+count.to_csv('count_borough.csv')
