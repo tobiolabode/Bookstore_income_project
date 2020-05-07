@@ -61,7 +61,7 @@ tax_year.columns = new_header
 #     print(col)
 
 tax_year_without_pop = tax_year.drop('Number of Individuals', axis=1)
-print(tax_year_without_pop)
+# print(tax_year_without_pop)
 
 tax_year_without_pop.plot(kind='bar', x='Area', y='Mean £')
 # plt.show()
@@ -71,6 +71,23 @@ tax_year_without_pop.plot(kind='bar', x='Area', y='Mean £')
 
 bookstore_df = pd.read_csv('filtered_dataset_boroughs.csv')
 count = bookstore_df['Borough'].value_counts()
-print(count)
+# print(count)
 
-count.to_csv('count_borough.csv')
+# count.to_csv('count_borough.csv')
+
+count_df = pd.read_csv('count_borough.csv')
+count_df = count_df.sort_values('Borough')
+tax_year_without_pop = tax_year_without_pop.sort_values('Area')
+# print(count_df.head())
+# print(tax_year_without_pop.head())
+
+tax_year_without_pop = tax_year_without_pop.drop('Median £', axis=1)
+# print(tax_year_without_pop.head())
+
+mean_income = tax_year_without_pop['Mean £']
+mean_income = mean_income.reset_index(drop=True)
+# print(mean_income)
+count_df = count_df.reset_index(drop=True)
+count_df['Income'] = mean_income
+# print(count_df['Income'])
+print(count_df)
