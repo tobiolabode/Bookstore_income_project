@@ -1,6 +1,9 @@
 import pandas as pd
 import re
 import matplotlib.pyplot as plt
+from numpy.polynomial.polynomial import polyfit
+from scipy import stats
+import numpy as np
 pd.set_option('display.max_colwidth', -1)
 # pd.set_option('display.max_columns', None)
 
@@ -63,8 +66,8 @@ tax_year.columns = new_header
 tax_year_without_pop = tax_year.drop('Number of Individuals', axis=1)
 # print(tax_year_without_pop)
 
-tax_year_without_pop.plot(kind='bar', x='Area', y='Mean £')
-# plt.show()
+# tax_year_without_pop.plot(kind='bar', x='Area', y='Mean £')
+# # plt.show()
 
 
 # Linear regession question: num of Bookstores to income.
@@ -90,4 +93,24 @@ mean_income = mean_income.reset_index(drop=True)
 count_df = count_df.reset_index(drop=True)
 count_df['Income'] = mean_income
 # print(count_df['Income'])
+# print(count_df)
+
+
+count_df['Income'] = count_df['Income'][count_df['Income'].between(
+    count_df['Income'].quantile(.15), count_df['Income'].quantile(.85))]
+
+count_df = count_df.dropna()
 print(count_df)
+
+ax1 = count_df.plot.scatter(x='Count', y='Income')
+ax1 = ax1.set_ylim(bottom=0)
+# ax2 = count_df.plot.bar(x='Count', y='Income')
+
+x = count_df['Count'].astype('float')
+y = count_df['Income'].astype('float')
+
+b, m = polyfit(x, y, 1)
+plt.plot(x, y, '.')
+plt.plot(x, b + m * x, '-')
+
+plt.show()
