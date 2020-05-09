@@ -45,6 +45,7 @@ result = pd.concat(frames)
 #
 # result.to_csv('filtered_dataset.csv', index=False)
 
+
 excel_df = pd.read_excel('income-of-tax-payers.xls', sheet_name=1)
 
 # print(excel_df.head(10))
@@ -95,22 +96,40 @@ count_df['Income'] = mean_income
 # print(count_df['Income'])
 # print(count_df)
 
+# count_df.to_csv('Borough_income_count.csv', index=False)
+compass_df = pd.read_csv('Borough_income_count.csv')
+print(compass_df)
+groups = compass_df.groupby('Compass')
+ax = plt.gca()
+for name, group in groups:
+    ax.plot(group["Count"], group["Income"], marker="o", linestyle="", label=name)
+    ax.annotate('test', xy=(4, 3))
 
-count_df['Income'] = count_df['Income'][count_df['Income'].between(
-    count_df['Income'].quantile(.15), count_df['Income'].quantile(.85))]
+# ax = plt.gca()
+# cs = ax.collections[0]
+# cs.set_offset_position('data')
+# print(cs.get_offsets())
+# ax.set_xlim(-.4, .4)
+# ax.set_xlim(-.4, .4)
+ax.annotate('test', xy=(5, 5))
+ax.legend()
+count_df_no_outliers = count_df
 
-count_df = count_df.dropna()
-print(count_df)
+count_df_no_outliers['Income'] = count_df_no_outliers['Income'][count_df_no_outliers['Income'].between(
+    count_df_no_outliers['Income'].quantile(.15), count_df_no_outliers['Income'].quantile(.85))]
 
-ax1 = count_df.plot.scatter(x='Count', y='Income')
-ax1 = ax1.set_ylim(bottom=0)
-# ax2 = count_df.plot.bar(x='Count', y='Income')
+count_df_no_outliers = count_df_no_outliers.dropna()
+# print(count_df_no_outliers)
 
-x = count_df['Count'].astype('float')
-y = count_df['Income'].astype('float')
-
-b, m = polyfit(x, y, 1)
-plt.plot(x, y, '.')
-plt.plot(x, b + m * x, '-')
+# ax1 = count_df_no_outliers.plot.scatter(x='Count', y='Income')
+# ax1 = ax1.set_ylim(bottom=0)
+# # ax2 = count_df.plot.bar(x='Count', y='Income')
+#
+# x = count_df_no_outliers['Count'].astype('float')
+# y = count_df_no_outliers['Income'].astype('float')
+#
+# b, m = polyfit(x, y, 1)
+# plt.plot(x, y, '.')
+# plt.plot(x, b + m * x, '-')
 
 plt.show()
