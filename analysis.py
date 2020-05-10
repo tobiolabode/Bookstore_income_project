@@ -100,18 +100,41 @@ count_df['Income'] = mean_income
 compass_df = pd.read_csv('Borough_income_count.csv')
 print(compass_df)
 groups = compass_df.groupby('Compass')
-ax = plt.gca()
+fig = plt.figure()
+ax = fig.add_subplot(111)
+# ax.set_xlim(-.4, .4)
 for name, group in groups:
     ax.plot(group["Count"], group["Income"], marker="o", linestyle="", label=name)
-    ax.annotate('test', xy=(4, 3))
 
-# ax = plt.gca()
-# cs = ax.collections[0]
-# cs.set_offset_position('data')
-# print(cs.get_offsets())
-# ax.set_xlim(-.4, .4)
-# ax.set_xlim(-.4, .4)
-ax.annotate('test', xy=(5, 5))
+# for i, txt in enumerate(compass_df['Borough']):
+#     ax.annotate(txt, (compass_df['Count'].iloc[i], compass_df['Income'].iloc[i]))
+#     print(i)
+    # ax.annotate('test', xy=(4, 3))
+
+ax.annotate(compass_df['Borough'].iloc[5],
+            (compass_df['Count'].iloc[5], compass_df['Income'].iloc[5]))
+
+ax.annotate(compass_df['Borough'].iloc[6],
+            (compass_df['Count'].iloc[6], compass_df['Income'].iloc[6]))
+
+ax.annotate(compass_df['Borough'].iloc[7],
+            (compass_df['Count'].iloc[7], compass_df['Income'].iloc[7]))
+
+ax.annotate(compass_df['Borough'].iloc[19],
+            (compass_df['Count'].iloc[19], compass_df['Income'].iloc[19]))
+
+
+# ax1 = count_df_no_outliers.plot.scatter(x='Count', y='Income')
+# ax1 = ax1.set_ylim(bottom=0)
+# # ax2 = count_df.plot.bar(x='Count', y='Income')
+#
+# x = compass_df['Count'].astype('float')
+# y = compass_df['Income'].astype('float')
+#
+# b, m = polyfit(x, y, 1)
+# plt.plot(x, y, '.')
+# plt.plot(x, b + m * x, '-')
+
 ax.legend()
 count_df_no_outliers = count_df
 
