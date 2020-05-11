@@ -1,33 +1,26 @@
-Borough,Count
-Camden,6
+,Borough
+London Borough of Camden,6
 City of Westminster,5
-Wandsworth,3
-Richmond upon Thames,3
-Kensington and Chelsea,3
-Bromley,2
-City of London,2
-Barnet,2
-Hounslow,1
-Redbridge,1
-Lewisham,1
-Croydon,1
-Islington,1
-Greenwich,1
-Harrow,1
-Havering,1
-Ealing,1
-Kingston upon Thames,1
-Haringey,1
-Tower Hamlets,1
-Merton,1
-Hillingdon,1
-Sutton,1
-Waltham Forest,1
-Enfield,1
-Brent,0
-Hackney,0
-Lambeth,0
-Newham,0
-Southwark,0
-Barking and Dagenham,0
-Bexley,0
+London Borough of Richmond upon Thames,3
+Royal Borough of Kensington and Chelsea,3
+London Borough of Wandsworth,3
+London Borough of Bromley,2
+London Borough of Barnet,2
+City of London Corporation,2
+London Borough of Croydon,1
+Royal Borough of Kingston upon Thames,1
+Royal Borough of Greenwich,1
+London Borough of Waltham Forest,1
+London Borough of Sutton,1
+London Borough of Redbridge,1
+London Borough of Harrow,1
+London Borough of Havering,1
+London Borough of Hillingdon,1
+London Borough of Islington,1
+London Borough of Tower Hamlets,1
+London Borough of Haringey,1
+London Borough of Enfield,1
+London Borough of Hounslow,1
+London Borough of Ealing,1
+London Borough of Lewisham,1
+London Borough of Merton,1

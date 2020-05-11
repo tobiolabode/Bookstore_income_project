@@ -74,8 +74,14 @@ tax_year_without_pop = tax_year.drop('Number of Individuals', axis=1)
 # Linear regession question: num of Bookstores to income.
 
 bookstore_df = pd.read_csv('filtered_dataset_boroughs.csv')
-count = bookstore_df['Borough'].value_counts()
-# print(count)
+count = bookstore_df['Borough'].value_counts().rename_axis('Borough').reset_index(name='Count')
+print(count)
+
+count['Borough'] = count['Borough'].str.replace('London Borough of ', '')
+count['Borough'] = count['Borough'].str.replace('Royal Borough of ', '')
+count['Borough'] = count['Borough'].str.replace('City of Westminster ', 'Westminster')
+
+print(count)
 
 # count.to_csv('count_borough.csv')
 
