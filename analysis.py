@@ -1,3 +1,4 @@
+import pdb
 import pandas as pd
 import re
 import matplotlib.pyplot as plt
@@ -79,8 +80,9 @@ count = bookstore_df['Borough'].value_counts().rename_axis('Borough').reset_inde
 
 count['Borough'] = count['Borough'].str.replace('London Borough of ', '')
 count['Borough'] = count['Borough'].str.replace('Royal Borough of ', '')
-count['Borough'] = count['Borough'].str.replace('City of Westminster ', 'Westminster')
-count['Borough'] = count['Borough'].str.replace('Corporation', '')
+count['Borough'] = count['Borough'].str.replace('City of Westminster', 'Westminster', regex=True)
+count['Borough'] = count['Borough'].str.replace('Corporation', '').str.strip()
+
 
 compare_1 = tax_year_without_pop['Area'].reset_index(drop=True)
 compare_2 = count['Borough']
@@ -95,37 +97,42 @@ idx2 = pd.Index(compare_2)
 append_values = idx1.difference(idx2).values
 zero_list = [0] * len(append_values)
 
-print(append_values)
-print(zero_list)
+# print(append_values)
+# print(zero_list)
 
 extra_name_df = pd.DataFrame(list(zip(append_values, zero_list)), columns=['Borough', 'Count'])
 
-print(extra_name_df)
-extra_name_df = extra_name_df.drop([3, 6, 9, 11])
+# print(extra_name_df)
+extra_name_df = extra_name_df.drop([5, 8, 9])
 print(extra_name_df)
 
 count = count.append(extra_name_df, ignore_index=True)
 
 
-print(count)
+# print(count)
 count.to_csv('count_borough.csv', index=False)
 
 count_df = pd.read_csv('count_borough.csv')
 count_df = count_df.sort_values('Borough')
+count_df = count_df.reset_index(drop=True)
 tax_year_without_pop = tax_year_without_pop.sort_values('Area')
-# print(count_df.head())
-# print(tax_year_without_pop.head())
+print(count_df)
+# print(tax_year_without_pop)
 
 tax_year_without_pop = tax_year_without_pop.drop('Median £', axis=1)
-# print(tax_year_without_pop.head())
+tax_year_without_pop = tax_year_without_pop.reset_index(drop=True)
+print(tax_year_without_pop)
+
+pdb.set_trace()
 
 mean_income = tax_year_without_pop['Mean £']
 mean_income = mean_income.reset_index(drop=True)
 # print(mean_income)
+# count_df = count_df.sort_values(by='Borough')
 count_df = count_df.reset_index(drop=True)
 count_df['Income'] = mean_income
 # print(count_df['Income'])
-print(count_df)
+# print(count_df)
 
 # count_df.to_csv('Borough_income_count.csv', index=False)
 compass_df = pd.read_csv('Borough_income_count.csv')
