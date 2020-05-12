@@ -103,7 +103,7 @@ zero_list = [0] * len(append_values)
 extra_name_df = pd.DataFrame(list(zip(append_values, zero_list)), columns=['Borough', 'Count'])
 
 # print(extra_name_df)
-extra_name_df = extra_name_df.drop([5, 8, 9])
+extra_name_df = extra_name_df.drop([5, 8])
 print(extra_name_df)
 
 count = count.append(extra_name_df, ignore_index=True)
@@ -116,14 +116,13 @@ count_df = pd.read_csv('count_borough.csv')
 count_df = count_df.sort_values('Borough')
 count_df = count_df.reset_index(drop=True)
 tax_year_without_pop = tax_year_without_pop.sort_values('Area')
-print(count_df)
+# print(count_df)
 # print(tax_year_without_pop)
 
 tax_year_without_pop = tax_year_without_pop.drop('Median £', axis=1)
 tax_year_without_pop = tax_year_without_pop.reset_index(drop=True)
 print(tax_year_without_pop)
 
-pdb.set_trace()
 
 mean_income = tax_year_without_pop['Mean £']
 mean_income = mean_income.reset_index(drop=True)
@@ -132,7 +131,10 @@ mean_income = mean_income.reset_index(drop=True)
 count_df = count_df.reset_index(drop=True)
 count_df['Income'] = mean_income
 # print(count_df['Income'])
-# print(count_df)
+print(count_df)
+
+
+pdb.set_trace()
 
 # count_df.to_csv('Borough_income_count.csv', index=False)
 compass_df = pd.read_csv('Borough_income_count.csv')
