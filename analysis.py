@@ -75,15 +75,40 @@ tax_year_without_pop = tax_year.drop('Number of Individuals', axis=1)
 
 bookstore_df = pd.read_csv('filtered_dataset_boroughs.csv')
 count = bookstore_df['Borough'].value_counts().rename_axis('Borough').reset_index(name='Count')
-print(count)
+
 
 count['Borough'] = count['Borough'].str.replace('London Borough of ', '')
 count['Borough'] = count['Borough'].str.replace('Royal Borough of ', '')
 count['Borough'] = count['Borough'].str.replace('City of Westminster ', 'Westminster')
+count['Borough'] = count['Borough'].str.replace('Corporation', '')
+
+compare_1 = tax_year_without_pop['Area'].reset_index(drop=True)
+compare_2 = count['Borough']
+compare_1 = compare_1.sort_values()
+compare_2 = compare_2.sort_values().reset_index(drop=True)
+# print(compare_1)
+# print(compare_2)
+
+idx1 = pd.Index(compare_1)
+idx2 = pd.Index(compare_2)
+# print(idx1.difference(idx2).values)
+append_values = idx1.difference(idx2).values
+zero_list = [0] * len(append_values)
+
+print(append_values)
+print(zero_list)
+
+extra_name_df = pd.DataFrame(list(zip(append_values, zero_list)), columns=['Borough', 'Count'])
+
+print(extra_name_df)
+extra_name_df = extra_name_df.drop([3, 6, 9, 11])
+print(extra_name_df)
+
+count = count.append(extra_name_df, ignore_index=True)
+
 
 print(count)
-
-# count.to_csv('count_borough.csv')
+count.to_csv('count_borough.csv', index=False)
 
 count_df = pd.read_csv('count_borough.csv')
 count_df = count_df.sort_values('Borough')
@@ -100,7 +125,7 @@ mean_income = mean_income.reset_index(drop=True)
 count_df = count_df.reset_index(drop=True)
 count_df['Income'] = mean_income
 # print(count_df['Income'])
-# print(count_df)
+print(count_df)
 
 # count_df.to_csv('Borough_income_count.csv', index=False)
 compass_df = pd.read_csv('Borough_income_count.csv')
