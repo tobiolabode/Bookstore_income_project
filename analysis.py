@@ -133,10 +133,34 @@ count_df['Income'] = mean_income
 # print(count_df['Income'])
 print(count_df)
 
+North_names = '(Barnet|Enfield|Haringey)'
+South_names = '(Bromley|Croydon|Kingston upon Thames|Merton|Sutton|Wandsworth)'
+East_names = '(Barking and Dagenham|Bexley|Greenwich|Hackney|Havering|Lewisham|Newham|Redbridge|Tower Hamlets|Waltham Forest)'
+West_names = '(Brent|Ealing|Hammersmith and Fulham|Harrow|Richmond upon Thames|Hillingdon|Hounslow)'
+Central_names = '(Camden|City of London|Kensington and Chelsea|Islington|Lambeth|Southwark|Westminster)'
 
-pdb.set_trace()
+count_df['Compass'] = [0] * len(count_df['Borough'])
 
-# count_df.to_csv('Borough_income_count.csv', index=False)
+count_df['Compass'] = count_df['Compass'].mask((count_df['Borough'].str.contains(
+    North_names) == True), other='North')
+
+count_df['Compass'] = count_df['Compass'].mask((count_df['Borough'].str.contains(
+    South_names) == True), other='South')
+
+count_df['Compass'] = count_df['Compass'].mask((count_df['Borough'].str.contains(
+    East_names) == True), other='East')
+
+count_df['Compass'] = count_df['Compass'].mask((count_df['Borough'].str.contains(
+    West_names) == True), other='West')
+
+count_df['Compass'] = count_df['Compass'].mask((count_df['Borough'].str.contains(
+    Central_names) == True), other='Central')
+
+print(count_df)
+
+
+count_df.to_csv('Borough_income_count.csv', index=False)
+
 compass_df = pd.read_csv('Borough_income_count.csv')
 print(compass_df)
 groups = compass_df.groupby('Compass')
@@ -157,8 +181,8 @@ ax.annotate(compass_df['Borough'].iloc[5],
 ax.annotate(compass_df['Borough'].iloc[6],
             (compass_df['Count'].iloc[6], compass_df['Income'].iloc[6]))
 
-ax.annotate(compass_df['Borough'].iloc[7],
-            (compass_df['Count'].iloc[7], compass_df['Income'].iloc[7]))
+ax.annotate(compass_df['Borough'].iloc[32],
+            (compass_df['Count'].iloc[32], compass_df['Income'].iloc[32]))  # Westminster
 
 ax.annotate(compass_df['Borough'].iloc[19],
             (compass_df['Count'].iloc[19], compass_df['Income'].iloc[19]))
@@ -176,6 +200,7 @@ ax.annotate(compass_df['Borough'].iloc[19],
 # plt.plot(x, b + m * x, '-')
 
 ax.legend()
+
 count_df_no_outliers = count_df
 
 count_df_no_outliers['Income'] = count_df_no_outliers['Income'][count_df_no_outliers['Income'].between(

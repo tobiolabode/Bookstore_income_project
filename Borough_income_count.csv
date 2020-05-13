@@ -1,33 +1,34 @@
 Borough,Count,Income,Compass
 Barking and Dagenham,0,26700,East
 Barnet,2,48600,North
-Bexley,0,32300,South
-Brent,0,34100,North
+Bexley,0,32300,East
+Brent,0,34100,West
 Bromley,2,44000,South
-Camden,6,88000,North
+Camden,6,88000,Central
 City of London,2,157000,Central
-City of Westminster,5,33800,Central
-Croydon,1,37300,South
-Ealing,1,34600,West
-Enfield,1,37500,North
-Greenwich,1,40600,East
-Hackney,0,66600,East
+Croydon,1,33800,South
+Ealing,1,37300,West
+Enfield,1,34600,North
+Greenwich,1,37500,East
+Hackney,0,40600,East
+Hammersmith and Fulham,0,66600,West
 Haringey,1,39900,North
 Harrow,1,38400,West
 Havering,1,33900,East
 Hillingdon,1,34300,West
 Hounslow,1,39900,West
-Islington,1,59500,North
-Kensington and Chelsea,3,171000,West
-Kingston upon Thames,1,44500,West
-Lambeth,0,43900,South
-Lewisham,1,35900,South
+Islington,1,59500,Central
+Kensington and Chelsea,3,171000,Central
+Kingston upon Thames,1,44500,South
+Lambeth,0,43900,Central
+Lewisham,1,35900,East
 Merton,1,53200,South
 Newham,0,28200,East
 Redbridge,1,35500,East
 Richmond upon Thames,3,67000,West
-Southwark,0,45400,South
+Southwark,0,45400,Central
 Sutton,1,35500,South
 Tower Hamlets,1,46600,East
 Waltham Forest,1,30300,East
 Wandsworth,3,64900,South
+Westminster,5,107000,Central
