@@ -1,7 +1,7 @@
 # Bookstore_income_project
 
 This is a data science project, finding out if there is a correlation between income and Waterstones bookstores in London.
-![alt text]("https://github.com/tobiolabode/Bookstore_income_project/blob/master/Images/chart%20final.png")
+![alt text](https://github.com/tobiolabode/Bookstore_income_project/blob/master/Images/chart%20final.png)
 
 
 ## perquisites
@@ -30,6 +30,7 @@ To run the data analysis:
 
 python main.py
 ```
+
 If you want to use the data scraper functions:
 ```python
 
