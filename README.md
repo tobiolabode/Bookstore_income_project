@@ -11,6 +11,10 @@ Blog posts on website documenting me developing the project:
 [Part 4, ](https://www.tobiolabode.com/blog/2020/5/11/bookstores-vs-income-part-4)
 [Part 5](https://www.tobiolabode.com/blog/2020/5/15/bookstores-vs-income-part-5)
 
+## Tasks to complete:
+[] add comments describing code  in analysis.py
+
+
 ## Perquisites
 For the Web scraper function:
 - Selenium
