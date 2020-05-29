@@ -7,7 +7,7 @@ This is a data science project, finding out if there is a correlation between in
 Use Git Clone to install project
 
 ```bash
-git clone 
+git clone https://github.com/tobiolabode/Bookstore_income_project.git
 ```
 
 ## Usage
