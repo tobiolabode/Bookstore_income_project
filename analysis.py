@@ -163,12 +163,14 @@ count_df.to_csv('Borough_income_count.csv', index=False)
 
 compass_df = pd.read_csv('Borough_income_count.csv')
 print(compass_df)
+
+print(compass_df.describe())
 groups = compass_df.groupby('Compass')
 fig = plt.figure()
 ax = fig.add_subplot(111)
 # ax.set_xlim(-.4, .4)
 for name, group in groups:
-    ax.plot(group["Count"], group["Income"], marker="o", linestyle="", label=name)
+    ax.plot(group["Count"], group["Income"], marker="o", linestyle="", label=name, alpha=0.6)
 
 # for i, txt in enumerate(compass_df['Borough']):
 #     ax.annotate(txt, (compass_df['Count'].iloc[i], compass_df['Income'].iloc[i]))
@@ -190,14 +192,14 @@ ax.annotate(compass_df['Borough'].iloc[19],
 
 # ax1 = count_df_no_outliers.plot.scatter(x='Count', y='Income')
 # ax1 = ax1.set_ylim(bottom=0)
-# # ax2 = count_df.plot.bar(x='Count', y='Income')
-#
-# x = compass_df['Count'].astype('float')
-# y = compass_df['Income'].astype('float')
-#
-# b, m = polyfit(x, y, 1)
-# plt.plot(x, y, '.')
-# plt.plot(x, b + m * x, '-')
+
+# ax2 = count_df.plot.scatter(x='Count', y='Income')
+
+x = compass_df['Count'].astype('float')
+y = compass_df['Income'].astype('float')
+
+b, m = polyfit(x, y, 1)
+plt.plot(x, b + m * x, '-')
 
 ax.legend()
 

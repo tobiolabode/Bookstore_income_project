@@ -1,6 +1,19 @@
 # Bookstore_income_project
 
-This is a data science project, finding out if there is a correlation between income and Waterstones bookstores in london.
+This is a data science project, finding out if there is a correlation between income and Waterstones bookstores in London.
+![alt text]()
+
+
+## perquisites
+For the Web scraper function:
+- Selenium
+- Requests
+
+For the data analysis:
+- Pandas
+- numpy
+- scipy
+- matplotlib
 
 ## Installation
 
@@ -17,9 +30,11 @@ To run the data analysis:
 
 python main.py
 ```
-If you want to use the data scraper:
+If you want to use the data scraper functions:
 ```python
 
+python scraper.py
+python borough.scraper.py
 
 ```
 
