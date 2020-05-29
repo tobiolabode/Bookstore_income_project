@@ -9,7 +9,7 @@ Blog posts on website documenting me developing the project:
 [Part 2, ](https://www.tobiolabode.com/blog/2020/4/26/bookstore-vs-income-part-2)
 [Part 3, ](https://www.tobiolabode.com/blog/2020/5/4/bookstores-vs-income-part-3)
 [Part 4, ](https://www.tobiolabode.com/blog/2020/5/11/bookstores-vs-income-part-4)
-[Part 5, ](https://www.tobiolabode.com/blog/2020/5/15/bookstores-vs-income-part-5)
+[Part 5](https://www.tobiolabode.com/blog/2020/5/15/bookstores-vs-income-part-5)
 
 ## Perquisites
 For the Web scraper function:
