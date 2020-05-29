@@ -5,11 +5,11 @@ This is a data science project, finding out if there is a correlation between in
 
 Blog posts on website documenting me developing the project:
 
-[part 1](https://www.tobiolabode.com/blog/2020/4/21/bookstores-vs-income-data-science-project-part-1)
-[part 2](https://www.tobiolabode.com/blog/2020/4/26/bookstore-vs-income-part-2)
-[part 3](https://www.tobiolabode.com/blog/2020/5/4/bookstores-vs-income-part-3)
-[part 4](https://www.tobiolabode.com/blog/2020/5/11/bookstores-vs-income-part-4)
-[part 5](https://www.tobiolabode.com/blog/2020/5/15/bookstores-vs-income-part-5)
+[Part 1, ](https://www.tobiolabode.com/blog/2020/4/21/bookstores-vs-income-data-science-project-part-1)
+[Part 2, ](https://www.tobiolabode.com/blog/2020/4/26/bookstore-vs-income-part-2)
+[Part 3, ](https://www.tobiolabode.com/blog/2020/5/4/bookstores-vs-income-part-3)
+[Part 4, ](https://www.tobiolabode.com/blog/2020/5/11/bookstores-vs-income-part-4)
+[Part 5, ](https://www.tobiolabode.com/blog/2020/5/15/bookstores-vs-income-part-5)
 
 ## Perquisites
 For the Web scraper function:
